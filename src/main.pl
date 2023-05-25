@@ -7,7 +7,9 @@ process("exit").
 process("stop").
 process(Sentence) :-
     sentenceToAtoms(Sentence,Atoms),
-    writeList(Atoms),
+   %writeList(Atoms),
+    respond(Atoms, Response),
+    writeList(Response),
     start.
 
 sentenceToAtoms(Sentence,Atoms) :-
@@ -15,8 +17,17 @@ sentenceToAtoms(Sentence,Atoms) :-
     maplist(atom_string,Atoms,List).
 
 writeList([]).
-writeList([X|XS]):-
+writeList([X]):-
     write(X), nl,
+    writeList([]).
+writeList([X|XS]):-
+    write(X), write(' '), 
     writeList(XS).
+
+respond([boa,tarde, N1|_], [chamo-me, N2]) :- change(N1, N2).
+respond(_, [por, favor, repita]).
+
+change([],[]).
+change(pedro, vasco).
 
 :- start.
