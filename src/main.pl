@@ -1,10 +1,12 @@
 start :-
+    %consult(change),
     read_string(user_input, "\n", ",.!?();",_, X),
     process(X).
 
 process("").
 process("exit").
 process("stop").
+process("adeus").
 process(Sentence) :-
     sentenceToAtoms(Sentence,Atoms),
    %writeList(Atoms),
@@ -24,10 +26,12 @@ writeList([X|XS]):-
     write(X), write(' '), 
     writeList(XS).
 
-respond([boa,tarde, N1|_], [chamo-me, N2]) :- change(N1, N2).
-respond(_, [por, favor, repita]).
-
-change([],[]).
-change(pedro, vasco).
-
+:- consult(change).
 :- start.
+
+%   NOTAS !!!
+% (mais notas no outro ficheiro)
+
+% não soube como fazer com que várias palavras sejam iguais: por exemplo, comportamento com "bom dia", "boa tarde", e "olá" é o mesmo
+% e "estava e estavas" também
+% isto foi sugerido pelo Professor e faz todo o sentido
