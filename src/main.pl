@@ -1,3 +1,5 @@
+:- [change].
+
 start :-
     %consult(change),
     read_string(user_input, "\n", ",.!?();",_, X),
@@ -26,7 +28,13 @@ writeList([X|XS]):-
     write(X), write(' '), 
     writeList(XS).
 
+<<<<<<< HEAD
 :- consult(change).
+=======
+respond([boa,tarde, N1|_], [chamo-me, N2]) :- change(N1, N2).
+respond(_, [por, favor, repita]).
+
+>>>>>>> refs/remotes/origin/main
 :- start.
 
 %   NOTAS !!!

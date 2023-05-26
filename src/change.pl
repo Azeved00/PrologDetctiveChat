@@ -1,5 +1,6 @@
 change([],[]).
 change(pedro, vasco).
+<<<<<<< HEAD
 change(jose, susana).
 
 
@@ -18,3 +19,5 @@ respond([onde,estava|_], [passei, o, dia, em, casa, dos, meus, sogros]).
 % num exemplo como o de cima o professor sugeriu criarmos uma lista de frases onde ele pode escolher aleatoriamente. 
 % Não encontrei nada na internet, se encontrares ou souberes como fazer era interessante implementar
 respond(_, [por, favor, repita]).
+=======
+>>>>>>> refs/remotes/origin/main
