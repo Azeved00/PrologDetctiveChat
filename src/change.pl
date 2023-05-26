@@ -1,0 +1,2 @@
+change([],[]).
+change(pedro, vasco).

@@ -1,3 +1,5 @@
+:- [change].
+
 start :-
     read_string(user_input, "\n", ",.!?();",_, X),
     process(X).
@@ -26,8 +28,5 @@ writeList([X|XS]):-
 
 respond([boa,tarde, N1|_], [chamo-me, N2]) :- change(N1, N2).
 respond(_, [por, favor, repita]).
-
-change([],[]).
-change(pedro, vasco).
 
 :- start.
