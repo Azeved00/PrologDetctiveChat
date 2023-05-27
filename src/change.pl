@@ -8,7 +8,7 @@ pai(rodrigo, francisco).
 
 suspect_name(_, carlos).
 
-respond([boa, tarde, carlos|_], [a, esta, hora, ja, e, boa, noite]).
+respond([boa, tarde, carlos], [a, esta, hora, ja, e, boa, noite]).
 respond([boa, tarde, N1|_], [chamo-me, N2]) :- suspect_name(N1, N2).
 respond([bom, dia, carlos|_], [a, esta, hora, ja, e, boa, tarde]).
 respond([bom, dia, N1|_], [chamo-me, N2]) :- suspect_name(N1, N2).
@@ -40,4 +40,4 @@ respond([pode, N1|_], [prefiro, N1, na, presenca, do, meu, advogado]).
 respond([confesse], [nunca, "!"]).
 
 respond([onde,estava|_], [passei, o, dia, em, casa, dos, meus, sogros]).
-respond(_, [por, favor, repita]).
+%respond(_, [por, favor, repita]).
