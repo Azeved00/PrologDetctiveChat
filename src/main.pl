@@ -1,4 +1,3 @@
-:- [change].
 
 start :-
     read_string(user_input, "\n", ",.!?();",_, X),
@@ -7,6 +6,7 @@ start :-
 process("").
 process("exit").
 process("stop").
+process("adeus").
 process(Sentence) :-
     sentenceToAtoms(Sentence,Atoms),
    %writeList(Atoms),
@@ -26,7 +26,4 @@ writeList([X|XS]):-
     write(X), write(' '), 
     writeList(XS).
 
-respond([boa,tarde, N1|_], [chamo-me, N2]) :- change(N1, N2).
-respond(_, [por, favor, repita]).
-
-:- start.
+:- [change],consult(change),start.
