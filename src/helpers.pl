@@ -15,4 +15,13 @@ sentenceToAtoms(Sentence,Atoms) :-
     split_string(Sentence, ' ', '', List),
     maplist(atom_string,Atoms,List).
 
-lAppend(L1-L2,L2-L3,L1-L3).
+writePrompt(agente):-
+    write('Agente       -> ').
+writePrompt(detetive):-
+    write('Detetive(you)-> ').
+writePrompt(carlos):-
+    write('Carlos       -> ').
+
+writeIntroList(List):-
+    writePrompt(agente),
+    writeList(List).

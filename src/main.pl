@@ -1,6 +1,12 @@
 start :-
-    introduction(I),
-    writeList(I),
+    findall(Intro, introduction(Intro), Intros),
+    maplist(writeIntroList,Intros),
+    main,
+    writePrompt(agente),
+    finishing(F),writeList(F),nl.
+
+main:-
+    writePrompt(detetive),
     read_string(user_input, "\n", ",.!?();",_, X),
     process(X).
 
@@ -13,8 +19,9 @@ process(Sentence) :-
     %writeList(Atoms),
     respond(Match, Response),
     match(Atoms,Match,Response, Out),
+    writePrompt(carlos),
     writeList(Out),
-    start.
+    main.
 
 match([Word|List],Left,Right,[Word|Out]):-
     match(List,Left,Right,Out).

@@ -10,14 +10,15 @@ random_crime(X) :-
     random(0, Length, RandomIndex),
     nth0(RandomIndex, Rules, X).
 
-introduction(['Bom', dia, detetive,',','\n',
-        'Hoje', temos, carlos,um,suspeito, de, X,'.','\n',
-        'O', detetive, vai, agora, conversar, com, ele, '.','\n', 
-        mas, cuidado, que, ele, 'é', mal, encarado,'.','\n',
-        'Boa', sorte,'.']):-
+introduction(['Bom', dia, detetive,',']).
+introduction(['Hoje', temos, carlos,um,suspeito, de, X,'.']):-
     random_crime(X).
+introduction(['O', detetive, vai, agora, conversar, com, ele, '.']).
+introduction([mas, cuidado, que, ele, 'é', mal, encarado,'.']).
+introduction(['Boa', sorte,'.']).
 
 %---------------------Finalizacao------------------------
+finishing(['Adeus']).
 %-----------------------Conversa-------------------------
 mae(vasco, isabel).
 mae(rodrigo, helena).
@@ -61,4 +62,4 @@ respond([pode, N1], [prefiro, N1, na, presenca, do, meu, advogado]).
 respond([confesse], [nunca, "!"]).
 
 respond([onde,estava], [passei, o, dia, em, casa, dos, meus, sogros]).
-%respond(_, [por, favor, repita]).
+respond(_, [por, favor, repita]).
