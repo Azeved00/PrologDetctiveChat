@@ -17,16 +17,20 @@ process("adeus").
 process(Sentence) :-
     sentenceToAtoms(Sentence,Atoms),
     %writeList(Atoms),
-    respond(Match, Response),
-    match(Atoms,Match,Response, Out),
+    match(Atoms,Response),
     writePrompt(carlos),
-    writeList(Out),
+    writeList(Response),
     main.
 
-match(List,Left,Right,Right):-
-    append(Left,_,List).
-match([_|List],Left,Right,Out):-
-    match(List,Left,Right,Out).
+%unify(S,[],S).
+%unify([Word|L1],[Word|L2],L2,Out):-unify(L1,L2,S).
+%unify([_|L1],L2,S):-unify(L1,L2,S).
+
+match([],[por, favor, repita]).
+match(List,Response):-
+    respond(List, Response).
+match([_|List],Response):-
+   match(List,Response).
 
 :- [helpers],[change].
 :- start.

@@ -45,22 +45,22 @@ alibi(sabado,[no, bar]).
 alibi(domingo,[na, casa,dos,meus,sogros]).
 
 %Introductions
-respond([boa, tarde, N1], [a, esta, hora, ja, e, boa, noite]):- suspect_name(N1).
-respond([boa, tarde, N1], [chamo-me, N2]) :- 
+respond([boa, tarde, N1|_], [a, esta, hora, ja, e, boa, noite]):- suspect_name(N1).
+respond([boa, tarde, N1|_], [chamo-me, N2]) :- 
     \+ suspect_name(N1), 
     suspect_name(N2).
-respond([bom, dia, N1], [a, esta, hora, ja, e, boa, tarde]):-suspect_name(N1).
-respond([bom, dia, N1], [chamo-me, N2]) :- 
+respond([bom, dia, N1|_], [a, esta, hora, ja, e, boa, tarde]):-suspect_name(N1).
+respond([bom, dia, N1|_], [chamo-me, N2]) :- 
     \+ suspect_name(N1),
     suspect_name(N2).
-respond([ola, N1], [agradecia, um, tratamento, mais, formal]):-suspect_name(N1).
-respond([ola, N1], [chamo-me, N2]) :- 
+respond([ola, N1|_], [agradecia, um, tratamento, mais, formal]):-suspect_name(N1).
+respond([ola, N1|_], [chamo-me, N2]) :- 
     \+ suspect_name(N1),
     suspect_name(N2).
-respond([ola], [agradecia, um, tratamento, mais, formal]).
+respond([ola|_], [agradecia, um, tratamento, mais, formal]).
 
 %Places
-respond([onde,estava, P, Dia],[estava|Lugar]):-
+respond([onde,estava, P, Dia|_],[estava|Lugar]):-
     proposicao(P), alibi(Dia,Lugar).
 respond([foi, visto, P1 |N1],[nunca, estive, P1|N1]):- 
     proposicao(P1), 
@@ -69,25 +69,23 @@ respond([foi, visto, P1 |N1],[nunca, estive, P1|N1]):-
 %respond([porque, estava|L1], L3) :- append([estava|L1], [como, costumo, todos, os, domingos], L3).
 
 %Coleagues
-respond([quando,viu,N1, N2, pela, ultima, vez], [nao, vejo, N1, N2, ha, meses]).
+respond([quando,viu,N1, N2, pela, ultima, vez|_], [nao, vejo, N1, N2, ha, meses]).
 
-respond([sabe, porque], [nao, sei, de, nada]).
+respond([sabe, porque|_], [nao, sei, de, nada]).
 
-respond([conhece, o, N1], [N1, so, conheco, o, filho, da, N2]) :- mae(N1, N2).
-respond([conhece, o, N1], [N1, so, conheco, o, filho, do, N2]) :- pai(N1, N2).
-respond([conhece, o, N1], [nao, conheco, nenhum, N1]) :- \+ colega(N1).
+respond([conhece, o, N1|_], [N1, so, conheco, o, filho, da, N2]) :- mae(N1, N2).
+respond([conhece, o, N1|_], [N1, so, conheco, o, filho, do, N2]) :- pai(N1, N2).
+respond([conhece, o, N1|_], [nao, conheco, nenhum, N1]) :- \+ colega(N1).
 
-respond([X],[nao,vou,falar,de,um,amigo,sem,ele,estar,aqui]):-colega(X).
+respond([X|_],[nao,vou,falar,de,um,amigo,sem,ele,estar,aqui]):-colega(X).
 
 %Do stuff
-respond([consegue, N1], [prefiro, N1, na, presenca, do, meu, advogado]).
-respond([pode, N1], [prefiro, N1, na, presenca, do, meu, advogado]).
+respond([consegue, N1|_], [prefiro, N1, na, presenca, do, meu, advogado]).
+respond([pode, N1|_], [prefiro, N1, na, presenca, do, meu, advogado]).
 
 %NEVER
-respond([confesse], [nunca, "!"]).
+respond([confesse|_], [nunca, "!"]).
 
-%Default
-respond(_, [por, favor, repita]).
 
 %como justifica
 %fale me de
