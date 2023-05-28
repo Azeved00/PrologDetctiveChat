@@ -18,11 +18,11 @@ sentenceToAtoms(Sentence,Atoms) :-
     split_string(Sentence, ' ', '', List),
     maplist(atom_string,Atoms,List).
 
+match([Word|List],Left,Right,[Word|Out]):-
+    match(List,Left,Right,Out).
 match(List,Left,Right,Out):-
-    append(Prefix,Left,L),
-    append(L,Sufix,List),
-    append(Prefix,Right,L2),
-    append(L2,Sufix,Out).
+    append(Left,Sufix,List),
+    append(Right,Sufix,Out).
 
 :- [helpers],[change].
 :- start.
