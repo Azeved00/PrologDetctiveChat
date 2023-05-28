@@ -21,7 +21,32 @@ introduction(['Sabemos','também',que,ele,tem,'2',colegas,':',o,rodrigo,e,o,vasc
 introduction(['Boa', sorte,'!']).
 
 %---------------------Finalizacao------------------------
-finishing(['Adeus']).
+finishing():-
+    finishing1(X1),
+    writePrompt(agente),
+    writeList(X1),
+    
+    writePrompt(detetive),
+    read_string(user_input, "\n", ",.!?();",_, V),
+    finishing2(V,X2),
+    writePrompt(agente),
+    writeList(X2),
+    
+    finishing3(X3),
+    writePrompt(agente),
+    writeList(X3),
+
+    finishing4(X4),
+    writePrompt(agente),
+    writeList(X4),nl.
+
+
+finishing1(['Entao',detetive,o,que,achou,'?']).
+
+finishing2(X,[X,'?', a,serio,'?']).
+finishing3(['Nao',estava,a,espera,desse,resultado,mas,se,o,diz,entao,e,porque,e,verdade,'.']).
+finishing4(['Obrigado',pela,ajuda,agente,',',ate,a,proxima,'!']).
+
 %-----------------------Conversa-------------------------
 colega(rodrigo).
 colega(vasco).

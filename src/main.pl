@@ -2,8 +2,7 @@ start :-
     findall(Intro, introduction(Intro), Intros),
     maplist(writeIntroList,Intros),
     main,
-    writePrompt(agente),
-    finishing(F),writeList(F),nl.
+    finishing().
 
 main:-
     writePrompt(detetive),
