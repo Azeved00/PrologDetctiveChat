@@ -25,6 +25,7 @@ process(Sentence) :-
 
 match([_|List],Left,Right,Out):-
     match(List,Left,Right,Out).
+match(Left,Left,Right,Right).
 match(List,Left,Right,Right):-
     append(Left,_,List).
 

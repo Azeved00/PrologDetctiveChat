@@ -5,7 +5,7 @@ writeList(['\n'|XS]):-
     nl,writeList(XS).
 writeList([X,P|XS]):-
    member(P,['.',',',':',';','!','?','-','_']),
-   write(X),write(P),
+   write(X),write(P),write(' '),
    writeList(XS).
 writeList([X|XS]):-
     write(X), write(' '), 
