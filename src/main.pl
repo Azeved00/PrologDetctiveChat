@@ -16,10 +16,6 @@ process(Sentence) :-
     writeList(Out),
     start.
 
-sentenceToAtoms(Sentence,Atoms) :-
-    split_string(Sentence, ' ', '', List),
-    maplist(atom_string,Atoms,List).
-
 match([Word|List],Left,Right,[Word|Out]):-
     match(List,Left,Right,Out).
 match(List,Left,Right,Out):-
