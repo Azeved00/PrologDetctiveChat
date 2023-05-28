@@ -11,14 +11,14 @@ random_crime(X) :-
     nth0(RandomIndex, Rules, X).
 
 introduction(['Bom', dia, detetive,',']).
-introduction(['Hoje', temos, jorge,',',um,suspeito, de, X,'.']):-
+introduction(['O', jorge, 'é', um, suspeito, de, X, '.']):-
     random_crime(X).
 introduction(['O', detetive, vai, agora, conversar, com, ele, ',']).
 introduction([mas, cuidado, que, ele, 'é', mal, encarado,'.']).
 introduction(['Sobre',o,incidente,':']).
-introduction(['Nao',sabemos,quando,foi,',',so,sabemos,que,foi,a,semana,passada]).
-introduction(['Sabemos',tambem,que,ele,tem,'2',colegas,o,rodrigo,e,o,vasco]).
-introduction(['Boa', sorte,'.']).
+introduction(['Não',sabemos,quando,foi,',','só',sabemos,que,foi,na,semana,passada,'.']).
+introduction(['Sabemos','também',que,ele,tem,'2',colegas,':',o,rodrigo,e,o,vasco,'.']).
+introduction(['Boa', sorte,'!']).
 
 %---------------------Finalizacao------------------------
 finishing(['Adeus']).
@@ -29,10 +29,10 @@ colega(vasco).
 mae(rodrigo, helena).
 pai(vasco, jose).
 
-proposicao_espacial(em).
-proposicao_espacial(na).
-proposicao_espacial(no).
-proposicao_espacial(a).
+proposicao(em).
+proposicao(na).
+proposicao(no).
+proposicao(a).
 
 suspect_name(carlos).
 
@@ -60,14 +60,13 @@ respond([ola, N1], [chamo-me, N2]) :-
 respond([ola], [agradecia, um, tratamento, mais, formal]).
 
 %Places
-respond([onde,estava, Dia],[estava|Lugar]):-
-    alibi(Dia,Lugar).
+respond([onde,estava, P, Dia],[estava|Lugar]):-
+    proposicao(P), alibi(Dia,Lugar).
 respond([foi, visto, P1 |N1],[nunca, estive, P1|N1]):- 
-    proposicao_espacial(P1), 
+    proposicao(P1), 
     \+ alibi(_,N1).
 
-respond([porque, estava|L1], L3) :- 
-    append([estava|L1], [como, costumo, todos, os, domingos], L3).
+%respond([porque, estava|L1], L3) :- append([estava|L1], [como, costumo, todos, os, domingos], L3).
 
 %Coleagues
 respond([quando,viu,N1, N2, pela, ultima, vez], [nao, vejo, N1, N2, ha, meses]).
@@ -89,3 +88,8 @@ respond([confesse], [nunca, "!"]).
 
 %Default
 respond(_, [por, favor, repita]).
+
+%como justifica
+%fale me de
+%sei
+%explique me
