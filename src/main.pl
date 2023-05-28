@@ -25,4 +25,4 @@ match(List,Left,Right,Out):-
     append(L2,Sufix,Out).
 
 :- [helpers],[change].
-%:- start.
+:- start.
