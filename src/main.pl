@@ -9,22 +9,20 @@ process("adeus").
 process(Sentence) :-
     sentenceToAtoms(Sentence,Atoms),
     %writeList(Atoms),
-    respond(Atoms, Response),
-    %match(Atoms,Match,Pattern, Out),
-    writeList(Response),
+    respond(Match, Response),
+    match(Atoms,Match,Response, Out),
+    writeList(Out),
     start.
 
 sentenceToAtoms(Sentence,Atoms) :-
     split_string(Sentence, ' ', '', List),
     maplist(atom_string,Atoms,List).
 
-match(X,[],Pattern, Out):- 
-	lAppend(Pattern,X,Out), !.
-match([Word|Sentence],[Word|Left],Right,[Word|Out]):- 
-	match(Sentence,Left,Right,Out).
-match([Word|Sentence],[Other|Left],Right,[Word|Out]):-
-    Word \= Other,
-	match(Sentence,[Other|Left],Right,Out).
+match(List,Left,Right,Out):-
+    append(Prefix,Left,L),
+    append(L,Sufix,List),
+    append(Prefix,Right,L2),
+    append(L2,Sufix,Out).
 
 :- [helpers],[change].
-:- start.
+%:- start.
