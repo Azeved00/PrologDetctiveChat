@@ -1,7 +1,12 @@
-writeList([]).
+writeList([]):- nl.
 writeList([X]):-
-    write(X), nl,
-    writeList([]).
+    write(X), nl.
+writeList(['\n'|XS]):-
+    nl,writeList(XS).
+writeList([X,P|XS]):-
+   member(P,['.',',',':',';','!','?','-','_']),
+   write(X),write(P),
+   writeList(XS).
 writeList([X|XS]):-
     write(X), write(' '), 
     writeList(XS).

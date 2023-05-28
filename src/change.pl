@@ -1,4 +1,24 @@
+%----------------------Introducao------------------------
+crime(roubar).
+crime(vandalizar).
+crime(matar).
+crime(hackear).
 
+random_crime(X) :-
+    findall(Rule, crime(Rule), Rules),
+    length(Rules, Length),
+    random(0, Length, RandomIndex),
+    nth0(RandomIndex, Rules, X).
+
+introduction(['Bom', dia, detetive,',','\n',
+        'Hoje', temos, carlos,um,suspeito, de, X,'.','\n',
+        'O', detetive, vai, agora, conversar, com, ele, '.','\n', 
+        mas, cuidado, que, ele, 'é', mal, encarado,'.','\n',
+        'Boa', sorte,'.']):-
+    random_crime(X).
+
+%---------------------Finalizacao------------------------
+%-----------------------Conversa-------------------------
 mae(vasco, isabel).
 mae(rodrigo, helena).
 

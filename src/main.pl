@@ -1,4 +1,6 @@
 start :-
+    introduction(I),
+    writeList(I),
     read_string(user_input, "\n", ",.!?();",_, X),
     process(X).
 
