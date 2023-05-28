@@ -23,11 +23,10 @@ process(Sentence) :-
     writeList(Out),
     main.
 
-match([Word|List],Left,Right,[Word|Out]):-
+match([_|List],Left,Right,Out):-
     match(List,Left,Right,Out).
-match(List,Left,Right,Out):-
-    append(Left,Sufix,List),
-    append(Right,Sufix,Out).
+match(List,Left,Right,Right):-
+    append(Left,_,List).
 
 :- [helpers],[change].
 :- start.

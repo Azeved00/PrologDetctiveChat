@@ -36,9 +36,9 @@ respond([boa, tarde, carlos], [a, esta, hora, ja, e, boa, noite]).
 respond([boa, tarde, N1], [chamo-me, N2]) :- suspect_name(N1, N2).
 respond([bom, dia, carlos], [a, esta, hora, ja, e, boa, tarde]).
 respond([bom, dia, N1], [chamo-me, N2]) :- suspect_name(N1, N2).
-respond([ola], [agradecia, um, tratamento, mais, formal]).
 respond([ola, carlos], [agradecia, um, tratamento, mais, formal]).
 respond([ola, N1], [chamo-me, N2]) :- suspect_name(N1, N2).
+respond([ola], [agradecia, um, tratamento, mais, formal]).
 
 respond([foi, visto, P1, N1],[nunca, estive, P1, N1]) :- proposicao_espacial(P1).
 
@@ -54,7 +54,7 @@ respond([conhece, o, N1], [N1, so, conheco, o, filho, da, N2]) :- mae(N1, N2).
 respond([conhece, o, N1], [N1, so, conheco, o, filho, do, N2]) :- pai(N1, N2).
 respond([conhece, o, N1], [nao, conheco, nenhum, N1]).
 
-respond([porque, estava|L1], L3) :- append([estava], L1, L2), append(L2, [como, costumo, todos, os, domingos], L3).
+%respond([porque, estava|L1], L3) :- append([estava], L1, L2), append(L2, [como, costumo, todos, os, domingos], L3).
 
 respond([consegue, N1], [prefiro, N1, na, presenca, do, meu, advogado]).
 respond([pode, N1], [prefiro, N1, na, presenca, do, meu, advogado]).
