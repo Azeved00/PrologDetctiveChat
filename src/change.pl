@@ -41,11 +41,11 @@ finishing():-
     writeList(X4),nl.
 
 
-finishing1(['Entao',detetive,o,que,achou,'?']).
+finishing1(['Então',detetive,',',o,que,achou,'?']).
 
-finishing2(X,[X,'?', a,serio,'?']).
-finishing3(['Nao',estava,a,espera,desse,resultado,mas,se,o,diz,entao,e,porque,e,verdade,'.']).
-finishing4(['Obrigado',pela,ajuda,agente,',',ate,a,proxima,'!']).
+finishing2(X,[X,'?', 'A sério','?']).
+finishing3(['Não',esperava,esse,resultado,'!','Mas',se,o,diz,'será',verdade,'.']).
+finishing4(['Obrigado',pela,ajuda,detetive,',','até','à','próxima','!']).
 
 %-----------------------Conversa-------------------------
 colega(rodrigo).
@@ -108,9 +108,9 @@ respond([sabe, porque|_], ['Não', sei, de, nada,'.']).
 
 respond([conhece, o, N1|_], [N1, 'só', 'conheço', o, filho, da, N2,'.']) :- mae(N1, N2).
 respond([conhece, o, N1|_], [N1, 'só', 'conheço', o, filho, do, N2,'.']) :- pai(N1, N2).
-respond([conhece, o, N1|_], ['não', 'conheço', nenhum, N1,'.']) :- \+ colega(N1).
+respond([conhece, o, N1|_], ['Não', 'conheço', nenhum, N1,'.']) :- \+ colega(N1).
 
-respond([X|_],[nao,falarei,de,um,amigo,na,'ausência',dele]):-colega(X).
+respond([X|_],['Não',falarei,de,um,amigo,na,'ausência',dele,'.']):-colega(X).
 
 %Do stuff
 respond([consegue, N1|_], ['Prefiro', N1, na, 'presença', do, meu, advogado, '.']).
@@ -121,4 +121,5 @@ respond([como, justifica|_], ['Há', coisas, que ,'não', precisam, de, 'justifi
 respond([crime|_], ['O', 'único', crime, cometido, foi, o, tempo, que, me, fizeram, esperar, '.']).
 respond([confesse|_], [nunca, '!']).
 respond([X|_], ['Qual', X,'?']) :- qual(X).
+
 
