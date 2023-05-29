@@ -25,7 +25,7 @@ process(Sentence) :-
 %unify([Word|L1],[Word|L2],L2,Out):-unify(L1,L2,S).
 %unify([_|L1],L2,S):-unify(L1,L2,S).
 
-match([],[por, favor, repita]).
+match([],['Ouço', muito, mal,',',por,favor,repita,'.']).
 match(List,Response):-
     respond(List, Response).
 match([_|List],Response):-

@@ -17,5 +17,5 @@ or
 
 ## By Who
 Este trabalho foi feito por 
- - Jaime Ferreira, up202008300 e 
+ - Jaime Cruz Ferreira, up202008300 e 
  - João Azevedo, up202008367
